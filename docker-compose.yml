@@ -1,10 +1,10 @@
 services:
   client:
-    image: 'waistdeepwooden/multi-client'
+    image: 'waistdeepwooden/multi-client-up'
     mem_limit: 128m
     hostname: client
   server:
-    image: 'waistdeepwooden/multi-server'
+    image: 'waistdeepwooden/multi-server-up'
     mem_limit: 128m
     hostname: api
     environment:
@@ -16,14 +16,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: 'waistdeepwooden/multi-worker'
+    image: 'waistdeepwooden/multi-worker-up'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: 'waistdeepwooden/multi-nginx'
+    image: 'waistdeepwooden/multi-nginx-up'
     mem_limit: 128m
     hostname: nginx
     ports:
